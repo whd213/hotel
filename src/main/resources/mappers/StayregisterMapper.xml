@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxxx.hotel.dao.StayregisterMapper">
+  <resultMap id="BaseResultMap" type="com.xxxx.hotel.vo.Stayregister">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="predetermineID" jdbcType="INTEGER" property="predetermineid" />
+    <result column="rentOutTypeID" jdbcType="INTEGER" property="rentouttypeid" />
+    <result column="roomID" jdbcType="INTEGER" property="roomid" />
+    <result column="payWayID" jdbcType="INTEGER" property="paywayid" />
+    <result column="billUnitID" jdbcType="INTEGER" property="billunitid" />
+    <result column="passengerTypeID" jdbcType="INTEGER" property="passengertypeid" />
+    <result column="receiveTargetID" jdbcType="INTEGER" property="receivetargetid" />
+    <result column="deputyID" jdbcType="INTEGER" property="deputyid" />
+    <result column="isBillID" jdbcType="INTEGER" property="isbillid" />
+    <result column="registerTime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="stayNumber" jdbcType="VARCHAR" property="staynumber" />
+    <result column="sumConst" jdbcType="DECIMAL" property="sumconst" />
+    <result column="ChangingRoomNumber" jdbcType="VARCHAR" property="changingroomnumber" />
+    <result column="changRoomMoney" jdbcType="DECIMAL" property="changroommoney" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="payTime" jdbcType="TIMESTAMP" property="paytime" />
+    <result column="changRoomTime" jdbcType="TIMESTAMP" property="changroomtime" />
+    <result column="remind" jdbcType="INTEGER" property="remind" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, predetermineID, rentOutTypeID, roomID, payWayID, billUnitID, passengerTypeID, 
+    receiveTargetID, deputyID, isBillID, registerTime, stayNumber, sumConst, ChangingRoomNumber, 
+    changRoomMoney, remarks, payTime, changRoomTime, remind
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stayregister
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from stayregister
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xxxx.hotel.vo.Stayregister">
+    insert into stayregister (id, predetermineID, rentOutTypeID, 
+      roomID, payWayID, billUnitID, 
+      passengerTypeID, receiveTargetID, deputyID, 
+      isBillID, registerTime, stayNumber, 
+      sumConst, ChangingRoomNumber, changRoomMoney, 
+      remarks, payTime, changRoomTime, 
+      remind)
+    values (#{id,jdbcType=INTEGER}, #{predetermineid,jdbcType=INTEGER}, #{rentouttypeid,jdbcType=INTEGER}, 
+      #{roomid,jdbcType=INTEGER}, #{paywayid,jdbcType=INTEGER}, #{billunitid,jdbcType=INTEGER}, 
+      #{passengertypeid,jdbcType=INTEGER}, #{receivetargetid,jdbcType=INTEGER}, #{deputyid,jdbcType=INTEGER}, 
+      #{isbillid,jdbcType=INTEGER}, #{registertime,jdbcType=TIMESTAMP}, #{staynumber,jdbcType=VARCHAR}, 
+      #{sumconst,jdbcType=DECIMAL}, #{changingroomnumber,jdbcType=VARCHAR}, #{changroommoney,jdbcType=DECIMAL}, 
+      #{remarks,jdbcType=VARCHAR}, #{paytime,jdbcType=TIMESTAMP}, #{changroomtime,jdbcType=TIMESTAMP}, 
+      #{remind,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xxxx.hotel.vo.Stayregister">
+    insert into stayregister
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="predetermineid != null">
+        predetermineID,
+      </if>
+      <if test="rentouttypeid != null">
+        rentOutTypeID,
+      </if>
+      <if test="roomid != null">
+        roomID,
+      </if>
+      <if test="paywayid != null">
+        payWayID,
+      </if>
+      <if test="billunitid != null">
+        billUnitID,
+      </if>
+      <if test="passengertypeid != null">
+        passengerTypeID,
+      </if>
+      <if test="receivetargetid != null">
+        receiveTargetID,
+      </if>
+      <if test="deputyid != null">
+        deputyID,
+      </if>
+      <if test="isbillid != null">
+        isBillID,
+      </if>
+      <if test="registertime != null">
+        registerTime,
+      </if>
+      <if test="staynumber != null">
+        stayNumber,
+      </if>
+      <if test="sumconst != null">
+        sumConst,
+      </if>
+      <if test="changingroomnumber != null">
+        ChangingRoomNumber,
+      </if>
+      <if test="changroommoney != null">
+        changRoomMoney,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="paytime != null">
+        payTime,
+      </if>
+      <if test="changroomtime != null">
+        changRoomTime,
+      </if>
+      <if test="remind != null">
+        remind,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="predetermineid != null">
+        #{predetermineid,jdbcType=INTEGER},
+      </if>
+      <if test="rentouttypeid != null">
+        #{rentouttypeid,jdbcType=INTEGER},
+      </if>
+      <if test="roomid != null">
+        #{roomid,jdbcType=INTEGER},
+      </if>
+      <if test="paywayid != null">
+        #{paywayid,jdbcType=INTEGER},
+      </if>
+      <if test="billunitid != null">
+        #{billunitid,jdbcType=INTEGER},
+      </if>
+      <if test="passengertypeid != null">
+        #{passengertypeid,jdbcType=INTEGER},
+      </if>
+      <if test="receivetargetid != null">
+        #{receivetargetid,jdbcType=INTEGER},
+      </if>
+      <if test="deputyid != null">
+        #{deputyid,jdbcType=INTEGER},
+      </if>
+      <if test="isbillid != null">
+        #{isbillid,jdbcType=INTEGER},
+      </if>
+      <if test="registertime != null">
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="staynumber != null">
+        #{staynumber,jdbcType=VARCHAR},
+      </if>
+      <if test="sumconst != null">
+        #{sumconst,jdbcType=DECIMAL},
+      </if>
+      <if test="changingroomnumber != null">
+        #{changingroomnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="changroommoney != null">
+        #{changroommoney,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="paytime != null">
+        #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changroomtime != null">
+        #{changroomtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remind != null">
+        #{remind,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xxxx.hotel.vo.Stayregister">
+    update stayregister
+    <set>
+      <if test="predetermineid != null">
+        predetermineID = #{predetermineid,jdbcType=INTEGER},
+      </if>
+      <if test="rentouttypeid != null">
+        rentOutTypeID = #{rentouttypeid,jdbcType=INTEGER},
+      </if>
+      <if test="roomid != null">
+        roomID = #{roomid,jdbcType=INTEGER},
+      </if>
+      <if test="paywayid != null">
+        payWayID = #{paywayid,jdbcType=INTEGER},
+      </if>
+      <if test="billunitid != null">
+        billUnitID = #{billunitid,jdbcType=INTEGER},
+      </if>
+      <if test="passengertypeid != null">
+        passengerTypeID = #{passengertypeid,jdbcType=INTEGER},
+      </if>
+      <if test="receivetargetid != null">
+        receiveTargetID = #{receivetargetid,jdbcType=INTEGER},
+      </if>
+      <if test="deputyid != null">
+        deputyID = #{deputyid,jdbcType=INTEGER},
+      </if>
+      <if test="isbillid != null">
+        isBillID = #{isbillid,jdbcType=INTEGER},
+      </if>
+      <if test="registertime != null">
+        registerTime = #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="staynumber != null">
+        stayNumber = #{staynumber,jdbcType=VARCHAR},
+      </if>
+      <if test="sumconst != null">
+        sumConst = #{sumconst,jdbcType=DECIMAL},
+      </if>
+      <if test="changingroomnumber != null">
+        ChangingRoomNumber = #{changingroomnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="changroommoney != null">
+        changRoomMoney = #{changroommoney,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="paytime != null">
+        payTime = #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changroomtime != null">
+        changRoomTime = #{changroomtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remind != null">
+        remind = #{remind,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xxxx.hotel.vo.Stayregister">
+    update stayregister
+    set predetermineID = #{predetermineid,jdbcType=INTEGER},
+      rentOutTypeID = #{rentouttypeid,jdbcType=INTEGER},
+      roomID = #{roomid,jdbcType=INTEGER},
+      payWayID = #{paywayid,jdbcType=INTEGER},
+      billUnitID = #{billunitid,jdbcType=INTEGER},
+      passengerTypeID = #{passengertypeid,jdbcType=INTEGER},
+      receiveTargetID = #{receivetargetid,jdbcType=INTEGER},
+      deputyID = #{deputyid,jdbcType=INTEGER},
+      isBillID = #{isbillid,jdbcType=INTEGER},
+      registerTime = #{registertime,jdbcType=TIMESTAMP},
+      stayNumber = #{staynumber,jdbcType=VARCHAR},
+      sumConst = #{sumconst,jdbcType=DECIMAL},
+      ChangingRoomNumber = #{changingroomnumber,jdbcType=VARCHAR},
+      changRoomMoney = #{changroommoney,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      payTime = #{paytime,jdbcType=TIMESTAMP},
+      changRoomTime = #{changroomtime,jdbcType=TIMESTAMP},
+      remind = #{remind,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByParams" parameterType="com.xxxx.hotel.query.StayregisterQuery" resultType="com.xxxx.hotel.vo.Stayregister">
+    select
+        temp.id,temp.roomNumber,re.teamName,temp.ChangingRoomNumber,temp.changRoomTime,temp.registerTime,temp.payTime,temp.sumConst
+    from
+    (select
+        st.id,r.roomNumber,st.receiveTargetID,st.ChangingRoomNumber,st.changRoomTime,st.registerTime,st.payTime,st.sumConst
+    from
+        stayregister st
+    LEFT JOIN
+        room r
+    on
+        st.roomID=r.id) temp
+    LEFT JOIN
+        receivetarget re
+    on
+        temp.receiveTargetID=re.id
+	 <where>
+       <if test="startime !=null and startime !='' and overtime !=null and overtime !=''">
+         and DATE(payTime) between #{startime} and #{overtime}
+       </if>
+     </where>
+    ORDER BY
+    temp.id desc
+  </select>
+  
+  <select id="selectByPrimaryKeys" parameterType="java.lang.Integer" resultType="com.xxxx.hotel.vo.Stayregister">
+    select
+        temp.id,temp.roomNumber,re.teamName,temp.ChangingRoomNumber,temp.changRoomTime,temp.registerTime,temp.payTime,temp.sumConst
+    from
+    (select
+        st.id,r.roomNumber,st.receiveTargetID,st.ChangingRoomNumber,st.changRoomTime,st.registerTime,st.payTime,st.sumConst
+    from
+        stayregister st
+    LEFT JOIN
+        room r
+    on
+        st.roomID=r.id) temp
+    LEFT JOIN
+        receivetarget re
+    on
+        temp.receiveTargetID=re.id
+    where temp.id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectSum" resultType="com.xxxx.hotel.vo.SumStayregister">
+    SELECT
+        SUM(temp.sumConst) sum1,SUM(1) sum2,1,temp.id,temp.roomNumber,re.teamName,temp.ChangingRoomNumber,temp.changRoomTime,temp.registerTime,temp.payTime,temp.sumConst
+    from
+    (select
+        st.id,r.roomNumber,st.receiveTargetID,st.ChangingRoomNumber,st.changRoomTime,st.registerTime,st.payTime,st.sumConst
+    from
+        stayregister st
+    LEFT JOIN
+        room r
+    on
+        st.roomID=r.id) temp
+    LEFT JOIN
+        receivetarget re
+    on
+        temp.receiveTargetID=re.id
+  </select>
+
+</mapper>
